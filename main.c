@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 
-/* Computer AI()
-** Give a number of matches of the computer in function of the player answer
+/* Function : Computer AI()
+** Topic : Give a number of matches of the computer, computer always winning
+** Return : Number of matches of the computer
 */
 int computerAI(int _numberOfMatches)
 {
@@ -19,13 +20,12 @@ int computerAI(int _numberOfMatches)
         return 1;
     case 3 :
         return 2;
-
     }
 
 }
 
-/* printingNumberOfMatches()
-** Give a print of the number of matches
+/* Function : printingNumberOfMatches()
+** Topic : Give a print of the number of matches
 */
 void printingNumberOfMatches(int _numberOfMatches)
 {
@@ -36,8 +36,8 @@ void printingNumberOfMatches(int _numberOfMatches)
     printf("\n");
 }
 
-/* humanVsSuperPowerComputer()
-** Give a print of the number of matches
+/* Function : humanVsSuperPowerComputer()
+** Topic : Gameloop of human vs super power computer, player give a number of matches and computer give number of matches which allows it to always win
 */
 void humanVsSuperPowerComputer()
 {
@@ -54,7 +54,7 @@ void humanVsSuperPowerComputer()
     while(exit == 0)
     {
 
-        /*Player 1*/
+        /*Player turn*/
         printf("It's player time !\n\n");
         printf("How many matches do you want ?");
         scanf("%d", &numberOfMatchesChosen);
@@ -82,7 +82,7 @@ void humanVsSuperPowerComputer()
             break;
         }
 
-        /*Computer*/
+        /*Computer turn*/
         printf("It's computer time !\n\n");
 
         numberOfMatchesChosen = computerAI(numberOfMatches);
@@ -103,8 +103,9 @@ void humanVsSuperPowerComputer()
 
 }
 
-/* humanVsComputer()
-** Give a print of the number of matches
+/* Function : humanVsComputer()
+** Topic : Player gives a number of matches to delete than it's computer turn, the number of matches of the computer to delete is generated randomly
+** Each game, the number of matches is verifying, it will be < 30
 */
 void humanVsComputer()
 {
@@ -172,6 +173,10 @@ void humanVsComputer()
     }
 }
 
+/* Function : humanVsComputer()
+** Topic : Player 1 gives a number of matches to delete than it's Player2 turn
+** The game is over when a player give a number of matches > at the number of matches remaining
+*/
 void humanVSHuman()
 {
     //variable declaration game loop
@@ -246,6 +251,10 @@ void humanVSHuman()
     }
 }
 
+/* Function : printMenu()
+** Topic : Printing of the menu, player is choses between option
+** Return : The choice of the player
+*/
 int printMenu()
 {
     int myChoice;
@@ -295,6 +304,10 @@ int printMenu()
     }
 }
 
+/* Function :  gameLoop()
+** Topic : In terms of the choice of the player, this function executes a level of game
+** Arg : The choice of the player
+*/
 void gameLoop(int _choice)
 {
     switch(_choice)
@@ -320,6 +333,8 @@ void gameLoop(int _choice)
 int main()
 {   int myChoice;
     myChoice = printMenu();
+
+    //The game
     gameLoop(myChoice);
     return 0;
 }
